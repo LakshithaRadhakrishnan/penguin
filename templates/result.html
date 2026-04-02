@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { background: #b3e5fc; text-align: center; font-family: 'Comic Sans MS'; overflow: hidden; margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+        .snow { position: absolute; top: -20px; color: white; animation: fall linear infinite; }
+        @keyframes fall { to { transform: translateY(110vh); } }
+        .board { position: relative; width: 90%; max-width: 450px; }
+        .board img { width: 100%; }
+        .board-text { position: absolute; top: 58%; left: 50%; transform: translate(-50%, -50%); width: 70%; font-size: 30px; color: #d32f2f; font-weight: bold; }
+        .btn { background: #ff9800; color: white; padding: 10px 30px; text-decoration: none; border-radius: 50px; margin-top: 20px; box-shadow: 0 5px 0 #e65100; z-index: 100; }
+    </style>
+</head>
+<body onload="startExperience()">
+    <div id="snow-field"></div>
+    <div class="board">
+        <img src="{{ url_for('static', filename='penguin_board.png') }}">
+        <div class="board-text">Good work<br>{{ name }}! 🌟</div>
+    </div>
+    <a href="/" class="btn">Try Again! 🔄</a>
+
+    <script>
+        function startExperience() {
+            // 1. Voice
+            const msg = new SpeechSynthesisUtterance("Good work {{ name }}!");
+            msg.pitch = 1.5;
+            window.speechSynthesis.speak(msg);
+
+            // 2. Snow
+            const field = document.getElementById('snow-field');
+            for(let i=0; i<30; i++) {
+                let s = document.createElement('div');
+                s.className = 'snow';
+                s.innerHTML = '❄';
+                s.style.left = Math.random() * 100 + 'vw';
+                s.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                field.appendChild(s);
+            }
+        }
+    </script>
+</body>
+</html>

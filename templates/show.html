@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="4;url=/result?name={{ name }}">
+    <style>
+        body { background: #01579b; color: white; text-align: center; font-family: 'Comic Sans MS'; padding-top: 50px; }
+        .circle { width: 250px; height: 250px; background: white; border-radius: 50%; margin: 0 auto; border: 10px solid #81d4fa; overflow: hidden; }
+        img { width: 100%; }
+    </style>
+</head>
+<body>
+    <audio autoplay>
+        <source src="{{ url_for('static', filename='penguin_sound.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <div class="circle">
+        <img src="{{ url_for('static', filename='penguin.gif') }}">
+    </div>
+    <h1>Hmm... the penguin is looking at your art, {{ name }}!</h1>
+    <p>Wait for the surprise...</p>
+</body>
+</html>
