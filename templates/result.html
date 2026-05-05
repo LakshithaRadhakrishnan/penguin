@@ -7,14 +7,14 @@
         @keyframes fall { to { transform: translateY(110vh); } }
         .board { position: relative; width: 90%; max-width: 450px; }
         .board img { width: 100%; }
-        .board-text { position: absolute; top: 58%; left: 50%; transform: translate(-50%, -50%); width: 70%; font-size: 30px; color: #d32f2f; font-weight: bold; }
+        .board-text { position: absolute; top: 90%; left: 50%; transform: translate(-50%, -50%); width: 70%; font-size: 30px; color: #d32f2f; font-weight: bold; }
         .btn { background: #ff9800; color: white; padding: 10px 30px; text-decoration: none; border-radius: 50px; margin-top: 20px; box-shadow: 0 5px 0 #e65100; z-index: 100; }
     </style>
 </head>
 <body onload="startExperience()">
     <div id="snow-field"></div>
     <div class="board">
-        <img src="{{ url_for('static', filename='penguin_board.png') }}">
+        <img src="{{ url_for('static', filename='Crab.png') }}">
         <div class="board-text">Good work<br>{{ name }}! 🌟</div>
     </div>
     <a href="/" class="btn">Try Again! 🔄</a>
